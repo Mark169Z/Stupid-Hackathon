@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 3000px;
+    height: 30px;
+    position: relative;
+    transform: translateX(25rem);
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #0f0;
+    transition: width 1s linear;
+    border-radius: 5px;
+}
+
+.regress {
+    height: 100%;
+    background-color: #f00;
+    position: absolute;
+    transition: left 0.5s linear;
+    border-radius: 5px;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(8px);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #000;
+}
+
+.border {
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border-width: 5px;
+    border-color: black;
+}
