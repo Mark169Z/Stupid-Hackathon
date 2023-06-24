@@ -1,17 +1,68 @@
-<!DOCTYPE html>
-<html>
+<html dir="ltr" lang="en">
 
 <head>
-    <script src="/system.js" defer></script>
-    <link rel="stylesheet" href="/style.css">
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#fff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cannot be reached</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="/system.js" defer></script>
 </head>
 
-<body>
-    <div id="progress-bar">
-        <div class="progress"></div>
-        <div class="regress"></div>
+<body style="font-family: system-ui, sans-serif; font-size: 75%" class="neterror">
+  <div id="main-frame-error" class="interstitial-wrapper">
+    <div id="main-content">
+      <div class="icon icon-thinking" alt="There's nothing here bro">
+      </div>
+      <div class="icon icon-generic"></div>
+      <div id="main-message">
+        <h1 id="FirstInfo">
+          <span></span>
+          <a id="error-information-button" class="hidden" onclick="toggleErrorInformationPopup();"></a>
+        </h1>
+        <p>Check if there is a typo in <span>CannotBeReached.in.th</span>.</p>
+        <div id="FC"></div>
+        <div id="https-upgrades-message" class="hidden">
+          <p id="https-upgrades-message-details" class="hidden" style="display: none;"></p>
+        </div>
+        <div id="error-information-popup-container">
+          <div id="error-information-popup">
+            <div id="error-information-popup-box">
+              <div id="error-information-popup-content">
+                <div id="suggestions-list"
+                  jsdisplay=" (suggestionsSummaryList &amp;&amp; suggestionsSummaryList.length)" jstcache="21">
+                  <ul class="">
+                    <li id="li1"> Search Baidu for <a id="search-link"
+                        href="https://www.bing.com/search?form=ANLKDR&amp;q=CannotBeReached">CannotBeReached</a>
+                    </li>
+                    <li>
+                      If your computer is working fine, <a href="https://www.instagram.com/" id="diagnose-link">try
+                        asking your friend if it is working or not</a>.</li>
+                  </ul>
+                </div>
+                <div class="error-code">
+                  TRY_REFRESH_THE_WEBSITE_THEN
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="text">Loading...</div>
-    <div class="border"></div>
+    <div id="buttons" class="nav-wrapper suggested-left" jstcache="0">
+      <div id="control-buttons">
+        </button> <button id="reload-button" class="blue-button text-button"
+          onclick="window.location.href='https://th.bing.com/th/id/OIP.7wAwMTm_U_U2v-aeCDSFoAHaHa?pid=ImgDet&w=1001&h=1001&rs=1'">
+          Refresh</button>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="sub-frame-error">
+    <!-- Show details when hovering over the icon, in case the details are hidden because they're too large. -->
+    <div class="icon icon-thinking"></div>
+    <div id="sub-frame-error-details">Check if there is a typo in <span>CannotBeReached.in.th</span>.</div>
+  </div>
 </body>
+
 </html>

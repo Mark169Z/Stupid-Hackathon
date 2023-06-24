@@ -1,33 +1,47 @@
-var progress = document.querySelector('.progress');
-var regress = document.querySelector('.regress');
-var text = document.querySelector('.text');
-var progressBar = document.getElementById('progress-bar');
-var direction = 1; // 1 for progress, -1 for regress
-var progressInterval = 500; // Time taken to fill 1% of the progress bar in milliseconds
-var animationInterval = 10; // Animation interval in milliseconds
+const body = document.querySelector("body");
+const defaultMode = "edge";
+let targetElement = document.getElementById("FC");
+let linkElement = document.createElement("a");
+linkElement.href = "https://www.instagram.com/";
+linkElement.style.borderBottom = "0";
+function fnBrowserDetect() {
 
-function animateProgress() {
-    var width = parseInt(progress.style.width) || 0;
+    let userAgent = navigator.userAgent;
 
-    if (width >= 2500) {
-        direction = -5; // switch to regress
-        text.textContent = "Regressing...";
-    } else if (width <= 0) {
-        direction = -5; // switch to progress
-        text.textContent = "Progressing...";
-     }
+    if (userAgent.match(/edge|edg/i)) {
+        browserName = "edge";
+        document.querySelector("h1").innerText = "Hmmm… can't reach this page";
+        document.querySelector(".icon-generic").style.display = "none";
+        body.classList.remove("edge", "chrome", "firefox");
+        body.classList.add("edge");
 
-        width += direction;
-        progress.style.width = width + 'px';
-        regress.style.left = width + 'px';
+    } else if (userAgent.match(/chrome|chromium|crios/i)) {
+        browserName = "chrome";
+        document.querySelector("h1").innerText = "This site can’t be reached";
+        document.querySelector("h1").style.color = "--link-color";
+        document.getElementById("FirstInfo").style.fontFamily = "Segoe UI,Tahoma,sans-serif";
+        document.querySelector("h1").style.fontWeight = "500";
+        document.querySelector("ul").innerText = "";
+        document.querySelector("#FC").innerText = "If spelling is correct, ";
+        document.getElementById("FC").style.marginTop = "15px";
+        var linkText = document.createTextNode('go ask your friend again if it is correct or not.');
+        linkElement.appendChild(linkText);
+        targetElement.appendChild(linkElement);
+        document.querySelector(".icon-thinking").style.display = "none";
+        document.querySelector("#reload-button").style.backgroundColor = "--link-color";
+        document.querySelector("#reload-button").innerHTML.style.fontFamily = "Roboto-Regular,Helvetica";
+        document.querySelector("#reload-button").style.borderRadius = "4px";
+        document.querySelector("#reload-button").style.width = "50px";
+        document.querySelector("#reload-button").style.padding = "8px 16px";
+        document.querySelector(".error-code").style.fontSize = ".8em";
+        document.querySelector(".error-code").style.fontWeight = "initial";
+        document.querySelector(".error-code").innerText = "ON_GOOGLE_CHROME_YOU_CAN_ALSO_REFRESH_THE_PAGE";
+        body.classList.remove("edge", "chrome", "firefox");
+        body.classList.add("chrome");
 
-        setTimeout(animateProgress, animationInterval);
+    } else {
+        browserName = "No browser detection";
     }
+}
 
-// Calculate the progress interval based on animationInterval and progress bar width
-progressInterval = (animationInterval * 100) / progressInterval;
-
-// Adjust the animationInterval to achieve faster green bar fill
-animationInterval /= progressInterval;
-
-animateProgress();
+fnBrowserDetect();
